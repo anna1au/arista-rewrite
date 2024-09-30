@@ -57,13 +57,15 @@
 	<h1 class="h1">Settings</h1>
 	{#if $currentUser}
 		<section>
-			<h2 class="h2">Profile</h2>
-			<p>Name: {$currentUser.name}</p>
-			<p>Email: {$currentUser.email}</p>
-			<p>Four Digit Id: {$currentUser.four_digit_id}</p>
-			<p>Homeroom: {$currentUser.homeroom}</p>
-			<p>Committees: {JSON.stringify($currentUser.committees)}</p>
-			<p>Is tutee?: {$currentUser.is_tutee}</p>
+			<h2 class="h2" style = "padding-bottom: 10px;">Profile</h2>
+			<div style = "font-size: 18px;">
+				<p style = "padding-bottom: 5px;"><b>Name: </b> {$currentUser.name}</p>
+				<p style = "padding-bottom: 5px;"><b> Email:</b> {$currentUser.email}</p>
+				<p style = "padding-bottom: 5px;"><b> OSIS:</b> {$currentUser.osis}</p>
+				<p style = "padding-bottom: 5px;"><b> Homeroom:</b> {$currentUser.homeroom}</p>
+				<p style = "padding-bottom: 5px;"><b> Committees:</b> {JSON.stringify($currentUser.committees)}</p>
+				<p><b> Is tutee?:</b> {$currentUser.is_tutee}</p>
+			</div>
 		</section>
 		<section>
 			<form
@@ -73,28 +75,31 @@
 				use:enhance
 			>
 				<ErrorComponent errors={$errors._errors} />
-				<h3 class="h3">Change password</h3>
+				<h3 class="h3">Change Password</h3>
 
 				<InputField
+					style = "padding-bottom: 15px;"
 					form={formObj}
 					field="password"
-					label="Enter your current password:"
+					label="Current password:"
 					type="password"
 				/>
 				<InputField
+					style = "padding-bottom: 15px"
 					form={formObj}
 					field="newPassword"
-					label="Enter your new password:"
+					label="New password:"
 					type="password"
 				/>
 				<InputField
+					style = "padding-bottom: 15px"
 					form={formObj}
 					field="newPasswordConfirm"
-					label="Confirm your new password:"
+					label="Confirm new password:"
 					type="password"
 				/>
 
-				<button type="submit" class="btn variant-filled">Change password</button>
+				<button type="submit" class="btn variant-filled">Change Password</button>
 			</form>
 		</section>
 		<a href="/" on:click={logout} class="btn variant-outline-primary">Logout</a>
